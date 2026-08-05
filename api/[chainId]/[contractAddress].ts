@@ -24,9 +24,11 @@ async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(404).json({ error: 'No contract found at this address' });
     }
 
+    console.log('start etherscan fetch', Date.now());
     const response = await fetch(
       ETHERSCAN_API_URL.replace('%chainId%', chainId).replace('%address%', contractAddress),
     );
+    console.log('end etherscan fetch', Date.now());
 
     const data = await response.json();
 
@@ -51,7 +53,10 @@ const isContract = async (chain: Chain, contractAddress: string) => {
     transport: http(),
   });
 
+  console.log('start getCode', Date.now());
   const bytecode = await publicClient.getCode({ address: contractAddress as Address });
+  console.log('end getCode', Date.now());
+
   if (!bytecode || bytecode === '0x') {
     return false;
   }
