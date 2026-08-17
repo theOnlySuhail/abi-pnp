@@ -33,7 +33,7 @@ function useContract() {
         throw new Error(
           `No contract found at address ${contractAddress} or the source code is not verified on Etherscan`,
         );
-      }
+      } 
 
       const parsedAbi = AbiSchema.safeParse(contract.abi);
       if (!parsedAbi.success) {

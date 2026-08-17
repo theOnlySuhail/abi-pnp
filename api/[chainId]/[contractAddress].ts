@@ -35,7 +35,7 @@ async function handler(req: VercelRequest, res: VercelResponse) {
     if (data.message === 'NOTOK') {
       return res.status(400).json({ error: data.result });
     } else if (data.result[0].ABI === 'Contract source code not verified') {
-      return res.status(400).json({ error: 'Contract source code not verified' });
+      return res.status(400).json({ error: data.result[0].ABI });
     }
 
     res.json({ source: data.result[0].SourceCode, abi: JSON.parse(data.result[0].ABI) });

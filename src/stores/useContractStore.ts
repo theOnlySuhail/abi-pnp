@@ -12,7 +12,7 @@ interface ContractAddressState {
 
 const useContractLocationStore = create<ContractAddressState>(set => ({
   contractAddress: undefined,
-  chainId: 11155111, // sepolia 
+  chainId: 11155111, // sepolia testnet
   actions: {
     setContractAddress: (contractAddress: Address) =>
       set(() => ({ contractAddress: contractAddress })),

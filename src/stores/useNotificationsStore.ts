@@ -17,7 +17,7 @@ const useNotificationStore = create<NotificationState>(set => ({
       set(state => {
         if (state.notifications.at(-1) && state.notifications.at(-1)!.msg === notification.msg)
           return { notifications: state.notifications };
-        
+
         return {
           notifications: state.notifications.concat({ ...notification, id: uuidv4() }),
         };
