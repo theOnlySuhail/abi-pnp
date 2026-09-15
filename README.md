@@ -41,7 +41,7 @@
 | Layer      | Tech Stack                                     |
 | ---------- | ---------------------------------------------- |
 | **Client** | React.js, TypeScript, Wagmi, Viem, TanStack Query |
-| **Server** | Node.js, Express, TypeScript, Viem             |
+| **Server** | Vercel Functions, TypeScript, Viem             |
 
 ## Running Locally
 
@@ -50,5 +50,5 @@
 pnpm install
 
 # run app
-npx vercel dev
+pnpm exec vercel dev
 ```
