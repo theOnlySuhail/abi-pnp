@@ -246,7 +246,7 @@ body {
   color: var(--text-primary);
   padding: 14px 18px;
   font-size: 15px;
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
   outline: none;
   min-width: 0;
 }
@@ -412,7 +412,7 @@ body {
 .fn-params {
   font-size: 13px;
   color: var(--text-secondary);
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -679,7 +679,7 @@ body {
 .wrapper-params {
   font-size: 13px;
   color: var(--text-secondary);
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
 }
 
 .wrapper-inputs {
@@ -705,7 +705,7 @@ body {
   padding: 9px 12px;
   margin-bottom: 4px;
   font-size: 13px;
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
   outline: none;
   transition:
     border-color 0.2s,
@@ -884,7 +884,7 @@ body {
 
 .tuple-title {
   font-size: 12px;
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
   font-weight: 600;
   background-color: var(--bg-secondary);
   padding: 2px 6px;
@@ -906,7 +906,7 @@ body {
   border-radius: var(--radius-sm);
   padding: 12px 18px;
   font-size: 14px;
-  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-family: monospace;
   word-break: break-all;
   color: var(--text-secondary);
   width: 100%;

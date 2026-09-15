@@ -29,7 +29,7 @@ Rules:
 - warnings should only include genuinely important things, not obvious ones
 - Base your explanation on the full contract source for accuracy, not just the function signature`;
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -63,3 +63,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: 'Internal server error' });
   }
 }
+
+export default handler;

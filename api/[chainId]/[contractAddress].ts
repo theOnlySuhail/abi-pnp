@@ -2,11 +2,11 @@ import { createPublicClient, http, type Address, type Chain } from 'viem';
 import { supportedChains } from '../../utils/chains.js';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const ETHERSCAN_CONTRACT_API_URL =
+const ETHERSCAN_API_URL =
   `https://api.etherscan.io/v2/api?apikey=${process.env.ETHERSCAN_SECRET_KEY}` +
-  `&chainid={chainId}&address={address}&module=contract&action=getsourcecode`;
+  `&chainid=%chainId%&address=%address%&module=contract&action=getsourcecode`;
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -25,10 +25,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const response = await fetch(
-      ETHERSCAN_CONTRACT_API_URL.replace('{chainId}', chainId).replace(
-        '{address}',
-        contractAddress,
-      ),
+      ETHERSCAN_API_URL.replace('%chainId%', chainId).replace('%address%', contractAddress),
     );
 
     const data = await response.json();
@@ -46,7 +43,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 }
 
 const getChain = (chainId: string): Chain | undefined =>
-  Object.values(supportedChains).find(c => c.id === Number(chainId)) as Chain | undefined;
+  Object.values(supportedChains).find((c) => c.id === Number(chainId)) as Chain | undefined;
 
 const isContract = async (chain: Chain, contractAddress: string) => {
   const publicClient = createPublicClient({
@@ -61,3 +58,5 @@ const isContract = async (chain: Chain, contractAddress: string) => {
 
   return true;
 };
+
+export default handler;
